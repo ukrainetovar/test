@@ -411,46 +411,7 @@
 
 
 
-               <script>document.addEventListener('DOMContentLoaded', function() {
-                  document.getElementById('order_form_custom').addEventListener('submit', function(e) {
-                  e.preventDefault(); // Запобігаємо стандартній відправці форми
                
-                  // Отримуємо значення полів форми
-                  var name = document.querySelector('input[name="name"]').value;
-                  var phone = document.querySelector('input[name="phone"]').value;
-                 
-               
-               
-                  // Формуємо повідомлення
-                  var message = `Нове замовлення:\nІм'я: ${name}\nТелефон: ${phone}`;
-               
-                  // Ваш токен та ID чату
-                  var token = '7107890334:AAFePgjhLUe8QX4ZO9EzdjFyXdBPeDFRx_s';
-                  var chatId = 1404908930; // Замініть YOUR_CHAT_ID на ваш реальний ID чату
-               
-                  // Відправляємо повідомлення через Telegram API
-                  fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
-                     method: 'POST',
-                     headers: {
-                           'Content-Type': 'application/json'
-                     },
-                     body: JSON.stringify({
-                           chat_id: chatId,
-                           text: message,
-                           parse_mode: "Markdown"
-                     })
-                  })
-                  .then(response => response.json())
-                  .then(data => {
-                     console.log('Success:', data);
-                     alert('Замовлення успішно відправлено!');
-                  })
-                  .catch((error) => {
-                     console.error('Error:', error);
-                     alert('Помилка при відправленні замовлення.');
-                  });
-               });
-              });</script>
 
 
 
